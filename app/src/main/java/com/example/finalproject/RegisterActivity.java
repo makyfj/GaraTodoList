@@ -61,7 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Account created successfully", Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
                                 }else{
-                                    Toast.makeText(getApplicationContext(), "Account created failed", Toast.LENGTH_SHORT).show();
+                                    // Account already registered
+                                    Toast.makeText(getApplicationContext(), "Account already registered", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -70,6 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
                     emailEditText.getText().clear();
                     passwordEditText.getText().clear();
                 }
+
+                finish();
             }
         });
 
