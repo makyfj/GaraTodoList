@@ -59,7 +59,6 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
                                     Toast.makeText(getApplicationContext(), "Account created successfully", Toast.LENGTH_SHORT).show();
-                                    FirebaseUser user = mAuth.getCurrentUser();
                                 }else{
                                     // Account already registered
                                     Toast.makeText(getApplicationContext(), "Account already registered", Toast.LENGTH_SHORT).show();
