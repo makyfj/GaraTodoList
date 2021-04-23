@@ -3,4 +3,9 @@
     <string name="labelWelcome">Welcome to Gara - Your favorite Todo app</string>
     <string name="labelRegister">Register</string>
     <string name="labelLogin">Login</string>
+    <string name="labelRegisterNewUser">Register new account</string>
+    <string name="labelEmail">Email:</string>
+    <string name="labelPassword">Password:</string>
+    <string name="labelLoginCurrentUser">Log In :)</string>
+    <string name="labelRegisterNewAccount">Register new account</string>
 </resources>
