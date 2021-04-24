@@ -3,6 +3,7 @@ package com.example.finalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()){
                                         Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                        launchTodoListActivity();
                                     }else{
                                         Toast.makeText(getApplicationContext(), "Login Unsuccessful", Toast.LENGTH_SHORT).show();
                                     }
@@ -62,5 +64,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    // Method to launch TodoListActivity
+    private void launchTodoListActivity(){
+        Intent intent = new Intent(this, TodoListActivity.class);
+        startActivity(intent);
     }
 }
