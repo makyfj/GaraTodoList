@@ -1,3 +1,3 @@
-# GaraTodoList
+# ShowerThoughts
 
-- Todo list app
+- App based on the popular subreddit Shower Thoughs
