@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -46,6 +50,51 @@ public class TodoListActivity extends AppCompatActivity {
 
         // query
         queryDatabase();
+    }
+
+    // Menu Item
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.app_bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        switch (id){
+            case R.id.addTask:
+                lauchAddTask();
+                return true;
+            case R.id.deleteUser:
+                deleteUser();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void deleteUser() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        assert user != null;
+
+        user.delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "Account deleted", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Couldn't delete account", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void lauchAddTask() {
     }
 
     private void queryDatabase() {

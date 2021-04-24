@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/addTask"
+        android:title="Add Task" />
+
+    <item
+        android:id="@+id/filterByChecked"
+        android:title="Filter by Checked" />
+
+    <item
+        android:id="@+id/filterByDifficulty"
+        android:title="Filter by Difficulty" />
+
+    <item
+        android:id="@+id/clearFilter"
+        android:title="Clear Filter" />
+
+    <item
+        android:id="@+id/appInfo"
+        android:title="App Info" />
+
+    <item
+        android:id="@+id/userInfo"
+        android:title="User Info"/>
+
+    <item
+        android:id="@+id/deleteUser"
+        android:title="Delete my account"/>
+
 </menu>
