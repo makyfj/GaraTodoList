@@ -25,7 +25,7 @@ import java.util.List;
 public class TodoListActivity extends AppCompatActivity {
 
     // Create members variables
-    private List<Todo> todoList = new ArrayList<>();
+    private List<ShowerThought> showerThoughtList = new ArrayList<>();
     private RecyclerView recyclerView;
     private TodoAdapter adapter;
 
@@ -39,7 +39,7 @@ public class TodoListActivity extends AppCompatActivity {
 
         // Set up RecyclerView
         recyclerView = findViewById(R.id.recyclerViewTodo);
-        adapter = new TodoAdapter(todoList);
+        adapter = new TodoAdapter(showerThoughtList);
 
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(getApplicationContext());
@@ -108,31 +108,31 @@ public class TodoListActivity extends AppCompatActivity {
 
     private void queryDatabase() {
 
-        db.collection("Todo")
+        db.collection("ShowerThoughts")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                        Todo t1;
+                        ShowerThought st1;
 
-                        String taskTodo;
-                        boolean checked;
-                        long difficultyLong;
-                        int difficultInt;
+                        String thought;
+                        String username;
+                        float rating;
+                        long ratingLong;
 
                         if(task.isSuccessful()){
                             for(QueryDocumentSnapshot document: task.getResult()){
 
-                                taskTodo = document.getString("task");
-                                checked = document.getBoolean("checked");
-                                difficultyLong = document.getLong("difficulty");
+                                thought = document.getString("thought");
+                                username = document.getString("username");
+                                ratingLong = document.getLong("rating");
 
-                                difficultInt = (int)difficultyLong;
+                                rating = (float)ratingLong;
 
-                                t1 = new Todo(taskTodo, checked, difficultInt);
+                                st1 = new ShowerThought(thought, username, rating);
 
-                                todoList.add(t1);
+                                showerThoughtList.add(st1);
                                 adapter.notifyDataSetChanged();
                             }
                         }else{

@@ -1,9 +1,11 @@
 package com.example.finalproject;
 
+import android.media.Rating;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -14,7 +16,7 @@ import java.util.List;
 
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> {
 
-    private List<Todo> todoList = new ArrayList<>();
+    private List<ShowerThought> showerThoughtList = new ArrayList<>();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -23,20 +25,25 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> 
         public CheckBox taskCheckBox;
         public SeekBar difficultySeekBar;
 
+        public TextView thoughtTextView;
+        public TextView usernameTextView;
+        public RatingBar rateRatingBar;
+
         public MyViewHolder(View view){
 
             super(view);
 
             // Initialize items layout
-            taskTextView = view.findViewById(R.id.textViewTask);
-            taskCheckBox = view.findViewById(R.id.checkBoxTask);
-            difficultySeekBar = view.findViewById(R.id.seekBarDifficulty);
+            thoughtTextView = view.findViewById(R.id.textViewShowerThougth);
+            usernameTextView = view.findViewById(R.id.textViewEmailUsername);
+            rateRatingBar = view.findViewById(R.id.ratingBarRating);
+
         }
     }
 
     // Adapter Constructor
-    public TodoAdapter(List<Todo> todoList){
-        this.todoList = todoList;
+    public TodoAdapter(List<ShowerThought> showerThoughtList){
+        this.showerThoughtList = showerThoughtList;
     }
 
     // Instances of ViewHolder
@@ -53,31 +60,30 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position){
 
-        Todo todo = todoList.get(position);
+        ShowerThought showerThought = showerThoughtList.get(position);
 
         // Get data to copy into the layout
-        String task = todo.getTask();
-        boolean checked = todo.getChecked();
-        int difficulty = todo.getDifficulty();
+        String thought = showerThought.getThought();
+        String username = showerThought.getUsername();
+        float rating = showerThought.getRating();
 
         // Set data inside the view holder
-        holder.taskTextView.setText(task);
-        holder.taskCheckBox.setChecked(checked);
-        holder.difficultySeekBar.setProgress(difficulty);
+        holder.thoughtTextView.setText(thought);
+        holder.usernameTextView.setText(username);
+        holder.rateRatingBar.setRating(rating);
     }
 
     // Return the number of items in the underlying collection
-
     @Override
     public int getItemCount() {
-        return todoList.size();
+        return showerThoughtList.size();
     }
 
     // change the underlying data collection(not an override)
-    public void setData(List<Todo> todoList){
+    public void setData(List<ShowerThought> showerThoughtList){
 
         // set to the new collection
-        this.todoList = todoList;
+        this.showerThoughtList = showerThoughtList;
 
         // notify the recycle view that the underlying data set has changed
         notifyDataSetChanged();
