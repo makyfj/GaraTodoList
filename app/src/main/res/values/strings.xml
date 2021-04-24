@@ -8,4 +8,6 @@
     <string name="labelPassword">Password:</string>
     <string name="labelLoginCurrentUser">Welcome Back :)</string>
     <string name="labelRegisterNewAccount">Register new account</string>
+    <string name="taskDifficulty">Difficulty</string>
+    <string name="labelTodo">Todo List :)</string>
 </resources>
