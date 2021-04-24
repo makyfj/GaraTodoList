@@ -2,36 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/addTask"
-        android:title="Add Task" />
+        android:id="@+id/addShowerThought"
+        android:title="@string/menuAddShowerThought" />
 
     <item
-        android:id="@+id/filterByChecked"
-        android:title="Filter by Checked" />
-
-    <item
-        android:id="@+id/filterByDifficulty"
-        android:title="Filter by Difficulty" />
+        android:id="@+id/filterByRating"
+        android:title="@string/menuFilterByRating" />
 
     <item
         android:id="@+id/clearFilter"
-        android:title="Clear Filter" />
-
-    <item
-        android:id="@+id/appInfo"
-        android:title="App Info" />
-
-    <item
-        android:id="@+id/userInfo"
-        android:title="User Info"/>
+        android:title="@string/menuClearFilter" />
 
     <item
         android:id="@+id/updatePassword"
-        android:title="Update my password"/>
+        android:title="@string/menuUpdatePassword"/>
 
     <item
         android:id="@+id/deleteUser"
-        android:title="Delete my account"/>
+        android:title="@string/menuDeleteAccount"/>
 
+    <item
+        android:id="@+id/appInfo"
+        android:title="@string/menuAppInfo" />
+
+    <item
+        android:id="@+id/userInfo"
+        android:title="@string/menuUserInfo"/>
 
 </menu>

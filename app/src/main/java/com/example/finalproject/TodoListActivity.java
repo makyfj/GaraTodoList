@@ -66,8 +66,8 @@ public class TodoListActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         switch (id){
-            case R.id.addTask:
-                launchAddTask();
+            case R.id.addShowerThought:
+                launchAddShowerThought();
                 return true;
             case R.id.deleteUser:
                 deleteUser();
@@ -103,7 +103,7 @@ public class TodoListActivity extends AppCompatActivity {
                 });
     }
 
-    private void launchAddTask() {
+    private void launchAddShowerThought() {
     }
 
     private void queryDatabase() {

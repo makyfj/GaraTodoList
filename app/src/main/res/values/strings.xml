@@ -14,4 +14,13 @@
     <string name="buttonUpdatePassword">Update</string>
     <string name="labelWrittenBy">Written by:</string>
     <string name="labelRateThisThought">Rate this thought</string>
+
+    <!-- Menu -->
+    <string name="menuAddShowerThought">Add a shower thought</string>
+    <string name="menuFilterByRating">Filter thought by rating</string>
+    <string name="menuClearFilter">Clear filter</string>
+    <string name="menuUpdatePassword">Update my password</string>
+    <string name="menuDeleteAccount">Delete my account</string>
+    <string name="menuAppInfo">App info</string>
+    <string name="menuUserInfo">User info</string>
 </resources>
