@@ -61,6 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+
+                    emailEditText.getText().clear();
+                    passwordEditText.getText().clear();
                 }
             }
         });

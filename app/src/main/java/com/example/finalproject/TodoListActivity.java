@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ public class TodoListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TodoAdapter adapter;
 
+    private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
     @Override
@@ -65,14 +67,21 @@ public class TodoListActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.addTask:
-                lauchAddTask();
+                launchAddTask();
                 return true;
             case R.id.deleteUser:
                 deleteUser();
                 return true;
+            case R.id.updatePassword:
+                launchUpdatePassword();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void launchUpdatePassword() {
+        Intent intent = new Intent(this, UpdatePasswordActivity.class);
+        startActivity(intent);
     }
 
     private void deleteUser() {
@@ -94,10 +103,11 @@ public class TodoListActivity extends AppCompatActivity {
                 });
     }
 
-    private void lauchAddTask() {
+    private void launchAddTask() {
     }
 
     private void queryDatabase() {
+
         db.collection("Todo")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

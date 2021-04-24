@@ -26,7 +26,12 @@
         android:title="User Info"/>
 
     <item
+        android:id="@+id/updatePassword"
+        android:title="Update my password"/>
+
+    <item
         android:id="@+id/deleteUser"
         android:title="Delete my account"/>
+
 
 </menu>
