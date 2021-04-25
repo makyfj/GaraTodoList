@@ -1,6 +1,5 @@
 package com.example.finalproject;
 
-import android.media.Rating;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> {
+public class ShowerThoughtAdapter extends RecyclerView.Adapter<ShowerThoughtAdapter.MyViewHolder> {
 
     private List<ShowerThought> showerThoughtList = new ArrayList<>();
 
@@ -42,7 +41,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> 
     }
 
     // Adapter Constructor
-    public TodoAdapter(List<ShowerThought> showerThoughtList){
+    public ShowerThoughtAdapter(List<ShowerThought> showerThoughtList){
         this.showerThoughtList = showerThoughtList;
     }
 

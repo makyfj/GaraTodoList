@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Method to launch TodoListActivity
     private void launchTodoListActivity(){
-        Intent intent = new Intent(this, TodoListActivity.class);
+        Intent intent = new Intent(this, ShowerThoughtListActivity.class);
         startActivity(intent);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.finalproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,12 +23,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodoListActivity extends AppCompatActivity {
+public class ShowerThoughtListActivity extends AppCompatActivity {
 
     // Create members variables
     private List<ShowerThought> showerThoughtList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private TodoAdapter adapter;
+    private ShowerThoughtAdapter adapter;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -39,7 +40,7 @@ public class TodoListActivity extends AppCompatActivity {
 
         // Set up RecyclerView
         recyclerView = findViewById(R.id.recyclerViewTodo);
-        adapter = new TodoAdapter(showerThoughtList);
+        adapter = new ShowerThoughtAdapter(showerThoughtList);
 
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(getApplicationContext());
@@ -69,6 +70,9 @@ public class TodoListActivity extends AppCompatActivity {
             case R.id.addShowerThought:
                 launchAddShowerThought();
                 return true;
+            case R.id.filterByRating:
+                launchFilterByRating();
+                return true;
             case R.id.deleteUser:
                 deleteUser();
                 return true;
@@ -77,6 +81,16 @@ public class TodoListActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void launchAddShowerThought() {
+        Intent intent = new Intent(this, AddShowerThoughtActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
+    private void launchFilterByRating() {
+        Intent intent = new Intent(this, GetRatingActivity.class);
+        startActivityForResult(intent, 1);
     }
 
     private void launchUpdatePassword() {
@@ -103,10 +117,34 @@ public class TodoListActivity extends AppCompatActivity {
                 });
     }
 
-    private void launchAddShowerThought() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Return addThoughtActivity
+        if(requestCode == 0){
+            if(resultCode == RESULT_OK){
+                queryDatabase();
+            }
+        }
+
+        // Return this activity code for GetRatingActivity
+        if(requestCode == 1){
+            if(resultCode == RESULT_OK){
+                int rating = data.getIntExtra("result", 0);
+                queryDatabase(rating);
+            }
+
+            if(resultCode == RESULT_CANCELED){
+                Toast.makeText(getApplicationContext(), "Result failed", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void queryDatabase() {
+
+        // Clear when new data is added
+        showerThoughtList.clear();
 
         db.collection("ShowerThoughts")
                 .get()
@@ -140,5 +178,50 @@ public class TodoListActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void queryDatabase(int rating){
+
+        showerThoughtList.clear();
+
+        db.collection("ShowerThoughts")
+                .whereGreaterThanOrEqualTo("rating", rating)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                        ShowerThought st1;
+
+                        String thought;
+                        String username;
+                        float rating;
+                        long ratingLong;
+
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot document: task.getResult()){
+
+                                thought = document.getString("thought");
+                                username = document.getString("username");
+                                ratingLong = document.getLong("rating");
+
+                                rating = (float)ratingLong;
+
+                                st1 = new ShowerThought(thought, username, rating);
+
+                                showerThoughtList.add(st1);
+                                adapter.notifyDataSetChanged();
+                            }
+                        }else{
+                            Toast.makeText(getApplicationContext(), "INVALID", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        queryDatabase();
     }
 }

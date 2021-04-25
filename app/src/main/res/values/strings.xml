@@ -14,7 +14,10 @@
     <string name="buttonUpdatePassword">Update</string>
     <string name="labelWrittenBy">Written by:</string>
     <string name="labelRateThisThought">Rate this thought</string>
-
+    <string name="labelAddShowerThought">Add a shower thought</string>
+    <string name="labelThought">Thought: </string>
+    <string name="labelRating">Rating: </string>
+    <string name="buttonAddShowerThought">Submit</string>
     <!-- Menu -->
     <string name="menuAddShowerThought">Add a shower thought</string>
     <string name="menuFilterByRating">Filter thought by rating</string>
