@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +25,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.google.firebase.firestore.FieldValue.delete;
 
 public class ShowerThoughtListActivity extends AppCompatActivity {
 
@@ -73,14 +78,26 @@ public class ShowerThoughtListActivity extends AppCompatActivity {
             case R.id.filterByRating:
                 launchFilterByRating();
                 return true;
+            case R.id.clearFilter:
+                queryDatabase();
+                return true;
             case R.id.deleteUser:
                 deleteUser();
                 return true;
             case R.id.updatePassword:
                 launchUpdatePassword();
+                return true;
+            case R.id.userInfo:
+                launchUserInfo();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void launchUserInfo() {
+        Intent intent = new Intent(this, UserInfoActivity.class);
+        startActivity(intent);
     }
 
     private void launchAddShowerThought() {
@@ -99,6 +116,36 @@ public class ShowerThoughtListActivity extends AppCompatActivity {
     }
 
     private void deleteUser() {
+
+        Context context;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Confirm");
+        builder.setMessage("Are you sure?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteAccount();
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Your account wouldn't be deleted", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
+    private void deleteAccount() {
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         assert user != null;
