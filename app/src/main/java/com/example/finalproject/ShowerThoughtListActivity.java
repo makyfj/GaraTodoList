@@ -90,9 +90,17 @@ public class ShowerThoughtListActivity extends AppCompatActivity {
             case R.id.userInfo:
                 launchUserInfo();
                 return true;
+            case R.id.appInfo:
+                launchAppInfo();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void launchAppInfo() {
+        Intent intent = new Intent(this, AppInfoActivity.class);
+        startActivity(intent);
     }
 
     private void launchUserInfo() {

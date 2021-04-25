@@ -19,6 +19,10 @@
     <string name="labelRating">Rating: </string>
     <string name="buttonAddShowerThought">Submit</string>
     <string name="labelEmailUser">Your email is:</string>
+    <string name="labelAppInfoActivity">Application Information</string>
+    <string name="labelAuthor">Author: Franklin Jara</string>
+    <string name="labelVersion">Version: 1.0</string>
+    <string name="labelContact">Contact: franklinjaradev@gmail.com</string>
 
     <!-- Menu -->
     <string name="menuAddShowerThought">Add a shower thought</string>
