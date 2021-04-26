@@ -3,7 +3,7 @@
 - App based on the popular subreddit Shower Thoughs
 - Register, login and add shower thoughts
 - It displays notifications when you add a new shower thought, and update your password
-- [Subredit](www.reddit.com/r/showerthoughts)
+- [Shower Thoughts subreddit](www.reddit.com/r/showerthoughts)
 
 ## How to run this application
 -   Download android studio
