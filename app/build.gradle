@@ -33,6 +33,7 @@ apply plugin: 'com.google.gms.google-services'
 
 dependencies {
 
+    implementation "com.android.support:support-compat"
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-analytics'
