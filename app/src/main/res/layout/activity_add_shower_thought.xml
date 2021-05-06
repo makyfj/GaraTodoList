@@ -8,30 +8,33 @@
 
     <TextView
         android:id="@+id/textViewAddShowerThought"
+        style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="137dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="96dp"
         android:text="@string/labelAddShowerThought"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewAddThought"
+        style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="176dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="152dp"
         android:text="@string/labelThought"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAddShowerThought" />
 
     <TextView
         android:id="@+id/textViewRating"
+        style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="182dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="156dp"
         android:text="@string/labelRating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAddThought" />
@@ -46,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewRating" />
 
     <Button
+        style="@style/ButtonStyle"
         android:id="@+id/buttonAddShowerThought"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

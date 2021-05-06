@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
-        <activity android:name=".AppInfoActivity"></activity>
+        <activity android:name=".AppInfoActivity"/>
         <activity android:name=".UserInfoActivity" />
         <activity android:name=".GetRatingActivity" />
         <activity android:name=".AddShowerThoughtActivity" />

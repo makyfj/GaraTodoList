@@ -8,10 +8,11 @@
 
     <TextView
         android:id="@+id/textViewFilterByRating"
+        style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="135dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="68dp"
         android:text="@string/menuFilterByRating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewFilterByRating" />
 
     <Button
+        style="@style/ButtonStyle"
         android:id="@+id/buttonFilterByRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -8,20 +8,22 @@
 
     <TextView
         android:id="@+id/textViewRegisterNewUser"
+        style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="149dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="40dp"
         android:text="@string/labelRegisterNewUser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewRegisterEmail"
+        style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="187dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="168dp"
         android:text="@string/labelEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewRegisterNewUser" />
@@ -39,10 +41,11 @@
 
     <TextView
         android:id="@+id/textViewRegisterPassword"
+        style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="173dp"
+        android:layout_marginEnd="152dp"
         android:text="@string/labelPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextRegisterEmail" />
@@ -60,10 +63,11 @@
 
     <Button
         android:id="@+id/buttonRegisterNewAccount"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="86dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="92dp"
         android:text="@string/labelRegisterNewAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextRegisterPassword" />
