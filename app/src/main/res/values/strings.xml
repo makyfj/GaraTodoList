@@ -25,6 +25,7 @@
     <string name="labelContact">Contact: franklinjaradev@gmail.com</string>
     <string name="githubLabel">Check this app in my github :)</string>
     <string name="githubLink">https://github.com/makyfj/ShowerThoughts</string>
+    <string name="buttonBackground">Background picture</string>
 
     <!-- Menu -->
     <string name="menuAddShowerThought">Add a shower thought</string>
@@ -34,4 +35,11 @@
     <string name="menuDeleteAccount">Delete my account</string>
     <string name="menuAppInfo">App info</string>
     <string name="menuUserInfo">User info</string>
+    <string name="settings">Settings</string>
+
+    <!-- Preferences -->
+    <string name="backgroundCategory">Background</string>
+    <string name="backgroundPicture">Enable background picture</string>
+    <string name="preferenceTitle">Preferences</string>
+    <string name="textSizeLabel">Text size</string>
 </resources>

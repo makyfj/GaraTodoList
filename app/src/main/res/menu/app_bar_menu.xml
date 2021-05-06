@@ -29,4 +29,7 @@
         android:id="@+id/userInfo"
         android:title="@string/menuUserInfo"/>
 
+    <item android:id="@+id/settings"
+        android:title="@string/settings"/>
+
 </menu>

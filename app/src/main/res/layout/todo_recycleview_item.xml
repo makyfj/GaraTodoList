@@ -8,10 +8,11 @@
     <TextView
         android:id="@+id/textViewShowerThougth"
         style="@style/ShowerThoughts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,27 +22,27 @@
         android:layout_width="130dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="31dp"
         android:text="@string/labelWrittenBy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewShowerThougth" />
 
     <TextView
         android:id="@+id/textViewEmailUsername"
         style="@style/HeaderStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewShowerThougth" />
 
     <RatingBar
         android:id="@+id/ratingBarRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="184dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="156dp"
         android:text="@string/labelRateThisThought"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
