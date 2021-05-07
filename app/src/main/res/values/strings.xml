@@ -42,4 +42,5 @@
     <string name="backgroundPicture">Enable background picture</string>
     <string name="preferenceTitle">Preferences</string>
     <string name="textSizeLabel">Text size</string>
+    <string name="textSizeSummary">Text size will change, you might need to restart app to see changes</string>
 </resources>

@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,6 +43,9 @@ public class ShowerThoughtListActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
+    // Textview Title
+    private TextView titleTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,19 @@ public class ShowerThoughtListActivity extends AppCompatActivity {
 
         // Initialize Firebase Firestore
         db = FirebaseFirestore.getInstance();
+
+        Context context;
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ShowerThoughtListActivity.this);
+
+        String textSize = sp.getString("textSize", "19");
+
+        Toast.makeText(ShowerThoughtListActivity.this, "Current text size: " + textSize, Toast.LENGTH_SHORT).show();
+
+        titleTextView = findViewById(R.id.textViewTodoList);
+
+        float textSizeFloat = Float.parseFloat(textSize);
+
+        titleTextView.setTextSize(1, textSizeFloat);
 
         // query
         queryDatabase();
