@@ -19,6 +19,12 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
 
+    /*
+    IMPORTANT: You can use previous emails such as hwk2@example.com or hwk3@example.com with same password
+                Or you can create a new account by going to the register activity :)
+                Hope you like it :)
+     */
+
     private static final String CHANNEL_ID = "Example";
     private Button registerButton;
     private Button loginButton;
